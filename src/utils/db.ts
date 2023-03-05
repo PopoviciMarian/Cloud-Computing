@@ -3,6 +3,7 @@ import config from "./config";
 import { Logging } from "./logging";
 
 export async function connectToDb() {
+  mongoose.set('strictQuery', true);
   mongoose
     .connect(config.MONGO_URI, { retryWrites: true, w: 'majority' })
     .then(() => {
@@ -11,6 +12,7 @@ export async function connectToDb() {
     .catch((error) => {
       Logging.error("DATABASE", "Error connecting to database", error);
     });
+
 }
 
 export function disconnectFromDb() {

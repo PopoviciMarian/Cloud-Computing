@@ -9,3 +9,9 @@ services:
       - NODE_ENV=development
     volumes:
       - ./src:/app/src
+   
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+  

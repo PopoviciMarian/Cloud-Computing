@@ -43,6 +43,15 @@ class Router {
         for await (const chunk of req) {
             body += chunk;
         }
+        let queryParams: Record<string, string> = {}
+        if (req.url?.includes("?")) {
+            for (const fil of req.url?.split("?")[1].split("&")) {
+                if (fil.includes("=")) {
+                    queryParams[fil.split("=")[0]] = fil.split("=")[1]
+                }
+            }
+            req.url = req.url?.split("?")[0]
+        }
 
         const route = this.routes.filter(r => r.method === req.method).find(r => {
             const path = r.path.split('/');
@@ -55,6 +64,9 @@ class Router {
                     return false;
                 }
             }
+
+
+
             let params: Record<string, string> = {};
             for (let i = 0; i < path.length; i++) {
                 if (path[i].startsWith(':')) {
@@ -62,8 +74,10 @@ class Router {
                 }
             }
 
+            req.rawHeaders.push(`query=${JSON.stringify(queryParams)}`)
             req.rawHeaders.push(`params=${JSON.stringify(params)}`);
             req.rawHeaders.push(`body=${body}`);
+
             return true;
         });
 

@@ -1,6 +1,6 @@
 
 import { IncomingMessage, ServerResponse } from "http";
-import { getPathParams, getBody } from "../../utils/util_functions";
+import { getPathParams, getBody, getQueryParams } from "../../utils/util_functions";
 import { createProductHelper, getProductHelper, modifyProductHelper } from "./product.service";
 
 

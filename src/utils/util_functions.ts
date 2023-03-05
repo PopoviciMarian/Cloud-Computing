@@ -2,6 +2,18 @@ import { IncomingMessage } from 'http';
 import { NAMESPACE } from '..';
 import { Logging } from './logging';
 
+export const getQueryParams = (req: IncomingMessage) => {
+    try {
+        const params = req.rawHeaders[req.rawHeaders.length - 3].split('=')[1];
+        return JSON.parse(params);
+    }
+    catch (e) {
+        Logging.error(NAMESPACE, "getQueryParams", e);
+        throw "Invalid query params"
+    }
+
+}
+
 export const getPathParams = (req: IncomingMessage) => {
     try {
         const params = req.rawHeaders[req.rawHeaders.length - 2].split('=')[1];
