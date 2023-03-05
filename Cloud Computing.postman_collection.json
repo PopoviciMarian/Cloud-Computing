@@ -1,0 +1,317 @@
+{
+	"info": {
+		"_postman_id": "f5887c76-309d-41c7-afcb-943ab7584bd6",
+		"name": "Cloud Computing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7986402"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "[POST] /product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"produs1\",\r\n    \"seller\":\"sadasd\",\r\n    \"price\":233,\r\n    \"productImage\":\"dasdsadasdas\",\r\n    \"description\":\"dasdsadasdasdasdsadas\",\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4001/api/v1/product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] product/:id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Request for product not found (check status code)\", function () {\r",
+									"  pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Request for product not found (check message code)\", function () {\r",
+									" pm.response.to.have.body({\r",
+									"    \"message\": \"Product not found\"\r",
+									"})\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cc_api_url}}/product/0000000000000000000",
+							"host": [
+								"{{cc_api_url}}"
+							],
+							"path": [
+								"product",
+								"0000000000000000000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] product/:id Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Request for product not found (check status code)\", function () {\r",
+									"  pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Request for product not found (check message code)\", function () {\r",
+									" pm.response.to.have.body({\r",
+									"    \"message\": \"Product not found\"\r",
+									"})\r",
+									"})\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cc_api_url}}/product/0000000000000000000",
+							"host": [
+								"{{cc_api_url}}"
+							],
+							"path": [
+								"product",
+								"0000000000000000000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] /product Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"produs1\",\r\n    \"seller\":\"sadasd\",\r\n    \"price\":233,\r\n    \"productImage\":\"dasdsadasdas\",\r\n    \"description\":\"dasdsadasdasdasdsadas\",\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4001/api/v1/product/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4001",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] /product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"produs1\",\r\n    \"price\":233,\r\n    \"productImage\":\"dasdsadasdas\",\r\n    \"description\":\"dasdsadasdasdasdsadas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cc_api_url}}/product/6404be93b400a3431fb5bb1b3",
+							"host": [
+								"{{cc_api_url}}"
+							],
+							"path": [
+								"product",
+								"6404be93b400a3431fb5bb1b3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] /product Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\":233,\r\n    \"productImage\":\"dasdsadasdas\",\r\n    \"description\":\"dasdsadasdasdasdsadas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cc_api_url}}/product/6404fd91f4bf4017b7230fb3",
+							"host": [
+								"{{cc_api_url}}"
+							],
+							"path": [
+								"product",
+								"6404fd91f4bf4017b7230fb3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PATCH] product",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "[PATCH] product Copy",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "[DELETE] product/:id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Seller",
+			"item": [
+				{
+					"name": "[POST] seller",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] seller",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] seller",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"64050fd9023c3f6038bed399\",\r\n    \"name\": \"Marina\",\r\n    \"email\": \"mmm@gmail.com\",\r\n    \"password\": \"123456\",\r\n    \"phone\": \"3232242344324\",\r\n    \"products\": [],\r\n    \"__v\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PATCH] seller",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "[DLELETE] seller",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] sellers/{id}/products",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
