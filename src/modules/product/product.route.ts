@@ -1,11 +1,13 @@
 import Router from "../../utils/router";
-import { createProduct, getProduct, modifyProduct } from "./product.controller";
+import { createProduct, getProduct, modifyProduct , replaceProduct, deleteProduct} from "./product.controller";
 
 const productRouter = new Router();
 
-productRouter.get("/:id", getProduct);
 productRouter.post("/", createProduct);
-productRouter.put("/:id", modifyProduct);
+productRouter.get("/:id", getProduct);
+productRouter.put("/:id", replaceProduct);
+productRouter.patch("/:id", modifyProduct);
+productRouter.delete("/:id", deleteProduct);
 
 
 export default productRouter;

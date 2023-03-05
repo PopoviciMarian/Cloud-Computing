@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\"",
     "start": "npm run build && nodemon build/index.js",
-    "build": "rimraf ./build && tsc"
+    "build": "rm -rf ./build && tsc"
   },
   "repository": {
     "type": "git",

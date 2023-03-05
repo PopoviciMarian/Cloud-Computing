@@ -2,6 +2,12 @@ import { IncomingMessage } from 'http';
 import { NAMESPACE } from '..';
 import { Logging } from './logging';
 
+export type Error = {
+    message: string,
+    name: string,
+    code: number
+}
+
 export const getQueryParams = (req: IncomingMessage) => {
     try {
         const params = req.rawHeaders[req.rawHeaders.length - 3].split('=')[1];
@@ -9,19 +15,30 @@ export const getQueryParams = (req: IncomingMessage) => {
     }
     catch (e) {
         Logging.error(NAMESPACE, "getQueryParams", e);
-        throw "Invalid query params"
+        const error:Error = {
+            name: "ValidationError",
+            message: "Invalid query params",
+            code : 400
+        }
+        throw error;
     }
+
 
 }
 
 export const getPathParams = (req: IncomingMessage) => {
     try {
-        const params = req.rawHeaders[req.rawHeaders.length - 2].split('=')[1];
+        const params = req.rawHeaders[req.rawHeaders.length - 2].split(/=(.*)/s)[1];
         return JSON.parse(params);
     }
     catch (e) {
         Logging.error(NAMESPACE, "getPathParams", e);
-        throw "Invalid path params"
+        
+        const error:Error = {
+            name: "ValidationError",
+            message: "Invalid path params",
+            code : 400
+        }
     }
 }
 
@@ -32,7 +49,12 @@ export const getBody = (req: IncomingMessage) => {
     }
     catch (e) {
         Logging.error(NAMESPACE, "getBody", e);
-        throw "Invalid body"
+        const error:Error = {
+            name: "ValidationError",
+            message: "Invalid body",
+            code : 400
+        }
+        throw error;
     }
 }
 
