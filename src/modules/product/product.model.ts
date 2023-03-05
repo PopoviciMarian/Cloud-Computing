@@ -23,7 +23,7 @@ export class Product {
     @prop({ required: true })
     productImage: string;
 
-    @prop({ required: true })
+    @prop({ required: false })
     seller: string;
 }
 
