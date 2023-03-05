@@ -1,7 +1,6 @@
 
 import { IncomingMessage, ServerResponse } from "http";
 import { Logging } from "../../utils/logging";
-import { getPathParams, getBody, getQueryParams } from "../../utils/util_functions";
 import { createProductHelper, deleteProductHelper, getProductHelper, modifyProductHelper, replaceProductHelper } from "./product.service";
 
 

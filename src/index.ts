@@ -6,6 +6,7 @@ import { IncomingMessage, ServerResponse } from "http";
 import productRouter from "./modules/product/product.route";
 import { connectToDb } from "./utils/db";
 import { checkPrefix } from "./utils/util_functions";
+import sellerRouter from "./modules/seller/seller.route";
 
 export const NAMESPACE = 'Server';
 Logging.debug(NAMESPACE, "Starting application");
@@ -27,7 +28,12 @@ const startServer = async () => {
         Logging.info(NAMESPACE, `METHOD: [${req.method}] - URL: [${req.url}] - IP: [${req.socket.remoteAddress}]`);
         if (checkPrefix(req, `/api/${config.API_VERSION}/product`)) {
             await productRouter.callRoute(req, res);
-        } else {
+        }
+        else if (checkPrefix(req, `/api/${config.API_VERSION}/sellers`)) {
+            await sellerRouter.callRoute(req, res);
+        }
+        
+        else {
             productRouter.reject(res);
         }
 

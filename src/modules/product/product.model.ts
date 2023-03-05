@@ -1,13 +1,12 @@
-import { getModelForClass, prop, ReturnModelType, modelOptions, index, types } from '@typegoose/typegoose';
+import { getModelForClass, prop, modelOptions } from '@typegoose/typegoose';
 
 // Product Model
 /**
  * name: string
- * seller: string
+ * description: string 
  * price: number
  * productImage: string
-
- * 
+ * seller: string
  */
 @modelOptions({ schemaOptions: { collection: 'products' } })
 export class Product {
