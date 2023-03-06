@@ -11,14 +11,14 @@
 
 
 
-#### POST /api/v1/product/
+#### POST /api/v1/products/
 
 This endpoint is used to create a new product.
 
 
 
 ```
-POST /api/v1/product/ HTTP/1.1
+POST /api/v1/products/ HTTP/1.1
 Host: localhost:4001
 Content-Type: application/json
 Content-Length: 122
@@ -31,22 +31,22 @@ Content-Length: 122
 }
 ```
 
-#### GET /api/v1/product/:id
+#### GET /api/v1/products/:id
 
 This endpoint is used to get a product by id.
 
 ```
-GET /api/v1/product/6404fd91f4bf4017b7230fb3 HTTP/1.1
+GET /api/v1/products/6404fd91f4bf4017b7230fb3 HTTP/1.1
 Host: localhost:4001
 ```
 
 
-#### PUT /api/v1/product/:id
+#### PUT /api/v1/products/:id
 
 This endpoint is used to update a product by id. (All fields are required)
 
 ```
-PUT /api/v1/product/64051c4cfe9f41f2669d15d1 HTTP/1.1
+PUT /api/v1/products/64051c4cfe9f41f2669d15d1 HTTP/1.1
 Host: localhost:4001
 Content-Type: application/json
 Content-Length: 122
@@ -59,12 +59,12 @@ Content-Length: 122
 }
 ```
 
-#### PATCH /api/v1/product/:id
+#### PATCH /api/v1/products/:id
 
 This endpoint is used to update a product by id. (Only the fields that are provided will be updated)
 
 ```
-PATCH /api/v1/product/6404fd91f4bf4017b7230fb3 HTTP/1.1
+PATCH /api/v1/products/6404fd91f4bf4017b7230fb3 HTTP/1.1
 Host: localhost:4001
 Content-Type: application/json
 Content-Length: 46
@@ -74,12 +74,12 @@ Content-Length: 46
 }
 ```
 
-#### DELETE /api/v1/product/:id
+#### DELETE /api/v1/products/:id
 
 This endpoint is used to delete a product by id.
 
 ```
-DELETE /api/v1/product/6404fd91f4bf4017b7230fb3 HTTP/1.1
+DELETE /api/v1/products/6404fd91f4bf4017b7230fb3 HTTP/1.1
 Host: localhost:4001
 ```
 
