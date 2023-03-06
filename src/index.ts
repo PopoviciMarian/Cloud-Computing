@@ -26,7 +26,7 @@ const startServer = async () => {
             return;
         }
         Logging.info(NAMESPACE, `METHOD: [${req.method}] - URL: [${req.url}] - IP: [${req.socket.remoteAddress}]`);
-        if (checkPrefix(req, `/api/${config.API_VERSION}/product`)) {
+        if (checkPrefix(req, `/api/${config.API_VERSION}/products`)) {
             await productRouter.callRoute(req, res);
         }
         else if (checkPrefix(req, `/api/${config.API_VERSION}/sellers`)) {
